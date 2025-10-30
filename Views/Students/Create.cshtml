@@ -1,0 +1,32 @@
+@model StudentManagement.Models.Student
+
+@{
+    ViewData["Title"] = "Add Student";
+}
+
+<h2>Add New Student</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label>Name</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Phone</label>
+        <input asp-for="Phone" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Course</label>
+        <input asp-for="Course" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Semester</label>
+        <input asp-for="Semester" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

@@ -1,0 +1,51 @@
+@model IEnumerable<StudentManagement.Models.Student>
+
+@{
+    ViewData["Title"] = "Students List";
+    var grouped = Model.GroupBy(s => new { s.Course, s.Semester });
+}
+
+<h2 class="fw-bold text-primary mb-4">Students</h2>
+
+<form method="get" class="d-flex mb-4">
+    <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" class="form-control me-2" placeholder="Search by name or course..." />
+    <button type="submit" class="btn btn-outline-primary">Search</button>
+</form>
+
+<a asp-action="Create" class="btn btn-success mb-3">➕ Add New Student</a>
+
+@foreach (var group in grouped)
+{
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <strong>@group.Key.Course</strong> — Semester @group.Key.Semester
+        </div>
+        <div class="card-body p-0">
+            <table class="table table-striped mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var student in group)
+                {
+                    <tr>
+                        <td>@student.Name</td>
+                        <td>@student.Email</td>
+                        <td>@student.Phone</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@student.Id" class="btn btn-sm btn-warning me-2">Edit</a>
+                            <a asp-action="Details" asp-route-id="@student.Id" class="btn btn-sm btn-info me-2">Details</a>
+                            <a asp-action="Delete" asp-route-id="@student.Id" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}

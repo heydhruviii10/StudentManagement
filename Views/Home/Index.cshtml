@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container mt-5">
+
+    <div class="text-center mb-5">
+        <h1 class="fw-bold text-primary mb-3">🎓 Welcome to Student Management System</h1>
+        <p class="lead text-muted">
+            Manage your students, courses, and academic records all in one place — simple, fast, and beautiful.
+        </p>
+        <a asp-controller="Students" asp-action="Index" class="btn btn-lg btn-primary me-3">View Students</a>
+        <a asp-controller="Courses" asp-action="Index" class="btn btn-lg btn-outline-primary">View Courses</a>
+    </div>
+
+    <div class="row text-center">
+        <!-- Students Card -->
+        <div class="col-md-4 mb-4">
+            <a asp-controller="Students" asp-action="Index" class="text-decoration-none text-dark">
+                <div class="card shadow-sm border-0 h-100 hover-shadow">
+                    <div class="card-body">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" class="img-fluid mb-3" style="height:80px;" />
+                        <h5 class="fw-bold">Student Records</h5>
+                        <p class="text-muted">Easily add, edit, or manage student profiles and academic information.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Courses Card -->
+        <div class="col-md-4 mb-4">
+            <a asp-controller="Courses" asp-action="Index" class="text-decoration-none text-dark">
+                <div class="card shadow-sm border-0 h-100 hover-shadow">
+                    <div class="card-body">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2920/2920244.png" class="img-fluid mb-3" style="height:80px;" />
+                        <h5 class="fw-bold">Course Management</h5>
+                        <p class="text-muted">Organize courses, assign students, and keep everything structured.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Dashboard Card -->
+        <div class="col-md-4 mb-4">
+            <a asp-controller="Home" asp-action="About" class="text-decoration-none text-dark">
+                <div class="card shadow-sm border-0 h-100 hover-shadow">
+                    <div class="card-body">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3214/3214679.png" class="img-fluid mb-3" style="height:80px;" />
+                        <h5 class="fw-bold">About System</h5>
+                        <p class="text-muted">Learn more about how this system simplifies student management.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<style>
+    .hover-shadow:hover {
+        transform: translateY(-5px);
+        transition: all 0.3s ease;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.15) !important;
+    }
+</style>
